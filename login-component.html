@@ -1,0 +1,72 @@
+<link rel="import" href="../polymer/polymer-element.html">
+
+<dom-module id="login-component">
+  <template>
+    <style>
+      :host {
+        display: block;
+      }
+
+      .title{
+        text-align: center;
+      }
+
+      .mainBlock input{
+        display: block;
+        height: 50px;
+        width: 100%;
+        margin: 10px;
+      }
+    </style>
+    <div class="mainBlock">
+      <h2 class="title">[[title]]</h2>
+      <input id="user" type="text" placeholder="[[placeholderUser]]">
+      <input id="password" type="password" placeholder="[[placeholderPassword]]">
+      <input id="button" type="button" value="[[buttonText]]">
+    </div>
+  </template>
+
+  <script>
+    /**
+     * `login-component`
+     * Credentials form
+     *
+     * @customElement
+     * @polymer
+     * @demo demo/index.html
+     */
+    class LoginComponent extends Polymer.Element {
+      static get is() { return 'login-component'; }
+      static get properties() {
+        return {
+          title: {
+            type: String,
+            value: 'Bienvenido a creditos patito'
+          },
+          placeholderUser: {
+            type: String,
+            value: 'Introduce tu usuario',
+          },
+          disabledUser:{
+            type: Boolean,
+            value: false
+          },
+          placeholderPassword: {
+            type: String,
+            value: 'Introduce tu password',
+          },
+          disabledPassword:{
+            type: Boolean,
+            value: false
+          },
+          buttonText: {
+            type: String,
+            value: 'Acceder'
+          }
+        };
+      }
+    }
+
+    window.customElements.define(LoginComponent.is, LoginComponent);
+  </script>
+</dom-module>
